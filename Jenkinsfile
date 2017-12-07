@@ -10,8 +10,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-             sh "${WORKSPACE}"
-             sh "docker build -t demo:${GIT_BRANCH} ${WORKSPACE}"
+             sh "echo ${WORKSPACE}"
+             sh "docker build -t demo:${GIT_BRANCH} ${WORKSPACE}/"
             }
         }
         stage('Push') {
