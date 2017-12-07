@@ -6,13 +6,13 @@ pipeline {
             steps {
               sh 'pwd'
               sh 'mvn clean package'
+              sh 'mv -u target/demo-0.0.1-SNAPSHOT.war  docker/demo.war'
             }
         }
         stage('Build') {
             steps {
-             sh "echo ${WORKSPACE}"
-             sh "docker build -t demo:${GIT_BRANCH} ${WORKSPACE}/"
-            }
+             sh "docker build -t demo:${GIT_BRANCH} docker/"
+        	}
         }
         stage('Push') {
             steps {
