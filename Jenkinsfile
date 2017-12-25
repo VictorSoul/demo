@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+    	stage('Sonar') {
+            steps {
+              sh 'sonar-scanner'
+            }
+        }
         stage('Package') {
             steps {
               sh 'pwd'
