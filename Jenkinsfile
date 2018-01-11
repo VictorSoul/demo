@@ -4,12 +4,12 @@ pipeline {
     stages {
     	stage('Sonar') {
             steps {
-              sh 'sonar-scanner'
+            sh 'pwd'
+            sh 'mvn -version'
             }
         }
         stage('Package') {
             steps {
-              sh 'pwd'
               sh 'mvn clean package'
               sh 'mv -u target/demo-0.0.1-SNAPSHOT.war  docker/demo.war'
             }
@@ -21,9 +21,8 @@ pipeline {
         }
         stage('Push') {
             steps {
-             sh 'pwd'
-             sh "docker tag demo:${GIT_BRANCH} 10.39.201.68:5000/demo:${GIT_BRANCH} "
-             sh "docker push 10.39.201.68:5000/demo:${GIT_BRANCH}"
+             sh "docker tag demo:${GIT_BRANCH} docker.registry.cscloud.com/demo:${GIT_BRANCH} "
+             sh "docker push docker.registry.cscloud.com/demo:${GIT_BRANCH}"
             }
         }
     }
