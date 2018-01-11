@@ -5,7 +5,7 @@ pipeline {
     	stage('Sonar') {
             steps {
             sh 	'''#!/bin/bash -ilex
-           		   sudo mvn -version
+           		   mvn -version
            	'''
             }
         }
