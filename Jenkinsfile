@@ -5,7 +5,7 @@ pipeline {
     	stage('Sonar') {
             steps {
             sh  'export PATH=/opt/apache-maven-3.5.2/bin:$PATH'
-            sh 	'/opt/apache-maven-3.5.2/bin/mvn -version'
+            sh 	'mvn -version'
             }
         }
         stage('Package') {
