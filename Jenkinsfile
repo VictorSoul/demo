@@ -5,7 +5,7 @@ pipeline {
     	stage('Sonar') {
             steps {
             sh 'pwd'
-            sh 'mvn -version'
+            sh 'sudo mvn -version'
             }
         }
         stage('Package') {
