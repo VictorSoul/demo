@@ -4,9 +4,7 @@ pipeline {
     stages {
     	stage('Sonar') {
             steps {
-            sh 	'''#!/bin/bash -ilex
-           		   sudo mvn -version
-           	'''
+            sh 	'/opt/apache-maven-3.5.2/bin/mvn -version'
             }
         }
         stage('Package') {
